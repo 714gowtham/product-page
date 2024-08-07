@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles for cart page */
+        .cart-items {
+            margin: 20px;
+        }
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .checkout-button:disabled {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">CropSync</div>
+    </div>
+    <div class="container">
+        <div class="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <button id="proceed-to-payment" class="checkout-button">Proceed to Payment</button>
+    </div>
+
+    <script>
+        // Function to check if cart is empty
+        function isCartEmpty() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            return cart.length === 0;
+        }
+
+        // Handle Proceed to Payment button click
+        document.getElementById('proceed-to-payment').addEventListener('click', function() {
+            if (isCartEmpty()) {
+                alert('Your cart is empty. Please add items to the cart before proceeding to payment.');
+            } else {
+                window.location.href = 'payment.html';
+            }
+        });
+
+        // Optionally populate cart items if needed
+        function populateCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.querySelector('.cart-items');
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cartItemsContainer.innerHTML = cart.map(item => `
+                    <div class='cart-item'>
+                        <img src="${item.image}" alt="${item.title}" class='rowimg'>
+                        <p>${item.title}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <h2>$ ${item.price * item.quantity}.00</h2>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Call populateCart on page load
+        window.onload = populateCart;
+    </script>
+</body>
+
+<footer>
+    <div class="container">
+        <div class="sec aboutus">
+            
+            <h2>About Us</h2>
+                <p>We are a leading agricultural and IoT-based company dedicated to enhancing farming efficiency through innovative technologies.</p>
+               <ul class="sci">
+                <li><a href="https://youtube.com/@cropsync"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://www.instagram.com/cropsync_official"><span><i class="fa-brands fa-instagram"></i></span></a></li>
+                <li><a href="https://www.linkedin.com/company/cropsync/"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
+               </ul>
+        </div>
+
+        <div class="sec quicklinks">
+
+          <h2>Quick Links</h2>
+          <ul>
+
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">FAQ</a></li>
+
+          </ul>
+
+        </div>
+        
+        <div class="sec newsletter">
+            <h2>Newsletter</h2>
+            <form>
+               
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <div id="success-popup" style="display: none;">
+            <p>You have successfully submitted</p>
+        </div>
+
+    </div>          
+</footer>
+
+<div class="copyrightText"
+<p> Copyright © 2022 Cropsync. All rights reserved</p>
+</html>

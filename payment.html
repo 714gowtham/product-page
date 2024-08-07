@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="payment.js" defer></script>
+    <style>
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            position: relative;
+        }
+        .popup-content h2 {
+            margin: 0;
+            color: #4CAF50;
+            font-size: 24px;
+        }
+        .popup-content p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .popup-content input {
+            display: block;
+            width: calc(100% - 20px);
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">CropSync</div>
+    </div>
+    <div class="container">
+        <div class="payment-section">
+            <div class="head">Payment Options</div>
+            <div class="payment-methods">
+                <label>
+                    <input type="radio" name="payment" value="credit" onclick="showInput('credit')"> Credit Card
+                </label>
+                <div id="credit-input" class="payment-input" style="display:none;">
+                    <input type="text" name="card-number" placeholder="Enter 16 digits of card number" maxlength="19">
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YYYY" maxlength="7">
+                    <input type="text" name="cvv" placeholder="CVV (e.g., 123)" maxlength="3">
+                </div>
+                <br>
+                <br>
+                <br>
+                <label>
+                    <input type="radio" name="payment" value="upi" onclick="showInput('upi')"> UPI
+                </label>
+                <div id="upi-input" class="payment-input" style="display:none;">
+                    <input type="text" placeholder="e.g., 12345678@ybl">
+                </div>
+                <br>
+                <br>
+                <br>
+                <label>
+                    <input type="radio" name="payment" value="cod" onclick="showInput('cod')"> Cash on Delivery
+                </label>
+                <div id="cod-input" class="payment-input" style="display:none;">
+                    <br><p>Pay on delivery</p>
+                </div>
+            </div>
+            <button id="place-order" onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <h2>Order Confirmation</h2>
+            <p>Your order has been placed successfully!</p>
+            <button onclick="redirectToHome()">Thank You</button>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div class="container">
+        <div class="sec aboutus">
+            
+            <h2>About Us</h2>
+                <p>We are a leading agricultural and IoT-based company dedicated to enhancing farming efficiency through innovative technologies.</p>
+               <ul class="sci">
+                <li><a href="https://youtube.com/@cropsync"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://www.instagram.com/cropsync_official"><span><i class="fa-brands fa-instagram"></i></span></a></li>
+                <li><a href="https://www.linkedin.com/company/cropsync/"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
+               </ul>
+        </div>
+
+        <div class="sec quicklinks">
+
+          <h2>Quick Links</h2>
+          <ul>
+
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">FAQ</a></li>
+
+          </ul>
+
+        </div>
+        
+        <div class="sec newsletter">
+            <h2>Newsletter</h2>
+            <form>
+               
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <div id="success-popup" style="display: none;">
+            <p>You have successfully submitted</p>
+        </div>
+
+    </div>          
+</footer>
+
+<div class="copyrightText"
+<p> Copyright © 2022 Cropsync. All rights reserved</p>
+</html>
+
+ 

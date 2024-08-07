@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <title>CropSync</title>
+</head>
+<body>
+    <div class="header"> 
+        <p class="logo">logo</p>
+        <div class="cart">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+            </svg>      
+            <p id="count">0</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="root"></div>
+        <div class="sidebar">
+            <div class="head"><p>My Cart</p></div>
+            <div id="cartItem">Your cart is empty</div>
+            <div class="foot">
+                <h3>Total</h3>
+                <h2 id="Total">$ 0.00</h2>
+            </div>
+            <div>
+                <button id="view-cart">View Cart</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+<footer>
+    <div class="container">
+        <div class="sec aboutus">
+            
+            <h2>About Us</h2>
+                <p>We are a leading agricultural and IoT-based company dedicated to enhancing farming efficiency through innovative technologies.</p>
+               <ul class="sci">
+                <li><a href="https://youtube.com/@cropsync"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://www.instagram.com/cropsync_official"><span><i class="fa-brands fa-instagram"></i></span></a></li>
+                <li><a href="https://www.linkedin.com/company/cropsync/"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
+               </ul>
+        </div>
+
+        <div class="sec quicklinks">
+
+          <h2>Quick Links</h2>
+          <ul>
+
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">FAQ</a></li>
+
+          </ul>
+
+        </div>
+        
+        <div class="sec newsletter">
+            <h2>Newsletter</h2>
+            <form>
+               
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <div id="success-popup" style="display: none;">
+            <p>You have successfully submitted</p>
+        </div>
+
+    </div>          
+</footer>
+
+<div class="copyrightText"
+<p> Copyright © 2022 Cropsync. All rights reserved</p>
+
+</html>
